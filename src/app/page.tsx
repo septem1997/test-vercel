@@ -10,3 +10,19 @@ export default function Home() {
     </main>
   )
 }
+
+export const metadata = {
+    openGraph: {
+        title: `test`,
+        url: `www.yanling.cool`,
+        siteName: "www.yanling.cool",
+        images: [
+            {
+                url: `https://www.yanling.cool/api/og/test`,
+                width: 800,
+                height: 400,
+            },
+        ],
+        type: "website",
+    },
+}
