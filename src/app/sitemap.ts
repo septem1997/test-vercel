@@ -1,7 +1,9 @@
-export default function sitemap() {
+import { MetadataRoute } from 'next';
+
+export default function sitemap():MetadataRoute.Sitemap {
     return [
         {
-            url: `https://localhost/store`,
+            url: 'https://acme.com',
             lastModified: new Date(),
         },
     ];
