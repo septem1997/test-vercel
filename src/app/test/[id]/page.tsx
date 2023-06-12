@@ -1,10 +1,7 @@
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params
-    const transition = await fetch("https://staging.api.globus.furniture/translations/toTranslationMap",{
-        method:"post",
-        body:JSON.stringify({
-            language:"en"
-        })
+    const transition = await fetch("https://staging.api.globus.furniture/translations/toTranslationMap?langauge=en",{
+        credentials:"include"
     })
     const json = JSON.stringify(await transition.json())
     return <div>
