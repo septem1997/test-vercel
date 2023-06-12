@@ -1,36 +1,31 @@
-export default async function Page({params}: { params: { id: string } }) {
-    const {id} = params
-    const transition = await fetch("https://staging.api.globus.furniture/translations/toTranslationMap",{
-        method:"post",
-        body:JSON.stringify({
-            language:"en"
-        })
-    })
-    const json = JSON.stringify(await transition.json())
-    return <div>
-        id:{id}
-
+export default async function Page({params}: {params: {id: string}}) {
+    const {id} = params;
+    const transition = await fetch(`https://staging.api.globus.furniture/translations/toTranslationMap?langauge=en`);
+    const json = JSON.stringify(await transition.json());
+    const map = JSON.stringify(
+        (await fetch("https://staging.api.globus.furniture/categoryProperties/categoryKeyToCoverMap")).json(),
+    );
+    return (
         <div>
-            translation
+            id:{id}
             <div>
-                {json}
+                translation
+                <div>{json}</div>
+                <div>{map}</div>
             </div>
         </div>
-    </div>
+    );
 }
-
-export const revalidate = 14400; // 4 hours
 export const dynamic = "force-static";
 
-
 export const generateStaticParams = () => {
-    const numsTo100 = []
-    for (let i =0;i<100;i++){
-        numsTo100.push(i.toString())
+    const numsTo100 = [];
+    for (let i = 0; i < 100; i++) {
+        numsTo100.push(i.toString());
     }
-    return numsTo100.map(n =>{
+    return numsTo100.map(n => {
         return {
-            id:n
-        }
-    })
+            id: n,
+        };
+    });
 };
