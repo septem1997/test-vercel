@@ -3,7 +3,7 @@ export default async function Page({params}: {params: {id: string}}) {
     const transition = await fetch(`https://staging.api.globus.furniture/translations/toTranslationMap?langauge=en&t=${id}`);
     const json = JSON.stringify(await transition.json());
     const map = JSON.stringify(
-        (await fetch("https://staging.api.globus.furniture/categoryProperties/categoryKeyToCoverMap")).json(),
+        await (await fetch("https://staging.api.globus.furniture/categoryProperties/categoryKeyToCoverMap")).json(),
     );
     return (
         <div>
