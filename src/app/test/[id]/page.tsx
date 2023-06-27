@@ -20,7 +20,7 @@ export const dynamic = "force-static";
 
 export const generateStaticParams = () => {
     const numsTo100 = [];
-    for (let i = 100; i < 200; i++) {
+    for (let i = 0; i < 200; i++) {
         numsTo100.push(i.toString());
     }
     return numsTo100.map(n => {
