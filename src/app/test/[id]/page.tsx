@@ -5,16 +5,16 @@ export default async function Page({params}: {params: {id: string}}) {
     console.timeEnd("firstRequest")
     console.log("firstRequest headers x-response-time",transition.headers.get("x-response-time"))
     const json = JSON.stringify(await transition.json());
-    const map = JSON.stringify(
-        await (await fetch("https://staging.api.globus.furniture/categoryProperties/categoryKeyToCoverMap")).json(),
-    );
+    // const map = JSON.stringify(
+    //     await (await fetch("https://staging.api.globus.furniture/categoryProperties/categoryKeyToCoverMap")).json(),
+    // );
     return (
         <div>
             id:{id}
             <div>
                 translation
                 <div>{json}</div>
-                <div>{map}</div>
+                {/*<div>{map}</div>*/}
             </div>
         </div>
     );
