@@ -9,6 +9,7 @@ export default async function Page({params}: {params: {id: string}}) {
     });
     console.timeEnd("firstRequest")
     console.log("firstRequest headers x-response-time",transition.headers.get("x-response-time"))
+    console.log("Cf-Cache-Status:",transition.headers.get("Cf-Cache-Status"))
     const json = JSON.stringify(await transition.json());
     return (
         <div>
