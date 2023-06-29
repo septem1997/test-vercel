@@ -1,8 +1,11 @@
 export default async function Page({params}: {params: {id: string}}) {
     const {id} = params;
     console.time("firstRequest")
-    const transition = await fetch(`https://h8vonc93tm3b.ngrok2.xiaomiqiu123.top/translations/toTranslationMap?langauge=ru121`,{
-        cache:"default"
+    const transition = await fetch(`https://staging.cache.api.globus.furniture/translations/toTranslationMap?langauge=ru121`,{
+        cache:"default",
+        headers:{
+            "x-deployment-id": process.env.VERCEL_GIT_COMMIT_SHA!,
+        }
     });
     console.timeEnd("firstRequest")
     console.log("firstRequest headers x-response-time",transition.headers.get("x-response-time"))
