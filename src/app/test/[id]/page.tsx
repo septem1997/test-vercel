@@ -4,6 +4,7 @@ export default async function Page({params}: {params: {id: string}}) {
     const transition = await fetch(`https://staging.cache.api.globus.furniture/translations/toTranslationMap?langauge=ru121`,{
         cache:"default",
         headers:{
+            "x-ssg-or-ssr-request": "1",
             "x-deployment-id": process.env.VERCEL_GIT_COMMIT_SHA!,
         }
     });
