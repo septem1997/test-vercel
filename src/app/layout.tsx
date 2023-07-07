@@ -6,6 +6,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+console.log("generate root layout")
   return (
     <html lang="en">
       {/*
